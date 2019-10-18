@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "search": "/components/search/search",
+    "loading": "/components/loading/loading"
+  },
+  "navigationBarTitleText": "搜索电影"
+}

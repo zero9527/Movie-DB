@@ -11,15 +11,15 @@ Page({
   },
   onLoad({ id }) {
     // 缓存数据
-    if (wx.getStorageSync('movieInfo')) {
-      let movieInfo = JSON.parse(wx.getStorageSync('movieInfo'));
-      this.setData({
-        movieInfo,
-        desc60words: this.getDesc60Words(movieInfo.summary)
-      });
-      return;
-    }
-    id = 30329892; // 模拟(航海王：狂热行动)
+    // if (wx.getStorageSync('movieInfo')) {
+    //   let movieInfo = JSON.parse(wx.getStorageSync('movieInfo'));
+    //   this.setData({
+    //     movieInfo,
+    //     desc60words: this.getDesc60Words(movieInfo.summary)
+    //   });
+    //   return;
+    // }
+    // id = 30329892; // 模拟(航海王：狂热行动)
     if (!id) return; 
     this.getData(id);
   },
@@ -34,6 +34,12 @@ Page({
         desc60words: this.getDesc60Words(res.summary)
       });
       wx.setStorageSync('movieInfo', JSON.stringify(res));
+    }).catch(statucCode => {
+      wx.showModal({
+        title: '提示',
+        content: `请求失败：${statucCode}`
+      });
+      this.setData({ isLoading: false });
     });
   },
   getDesc60Words(desc) {

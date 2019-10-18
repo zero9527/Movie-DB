@@ -1,4 +1,4 @@
-<view class="loading" hidden="{{hidden}}">
+<view class="loading">
   <!-- <slot wx:if="{{$slots}}" />
   <image wx:else src="/assets/images/loading.gif" style="width: 26px; height: 26px;" /> -->
   <image src="/assets/images/loading.gif" style="width: 26px; height: 26px;" />

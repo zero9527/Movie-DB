@@ -22,8 +22,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.8.3",
-	"appid": "wx5a542e228e72c631",
-	"projectname": "jd-1",
+	"appid": "wxbf02e85ac5030825",
+	"projectname": "movie-db",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

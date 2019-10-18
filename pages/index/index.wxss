@@ -1,49 +1,16 @@
-.new-movie {
+.home {
+  height: 100vh;
+  padding-top: 46px;
+}
+
+.search-wrapper {
   width: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin: 10px 0;
-  padding: 30px 20px;
-  border-radius: 4px;
-  color: #fff;
-  background: rgb(76, 74, 75);
-  box-sizing: border-box;
-}
-.new-movie .tag {
-  position: absolute;
-  bottom: 10rpx;
-  right: 20rpx;
-  font-size: 14px;
-}
-.new-movie .card-wrapper {
-  flex: 1;
-}
-.new-movie .card-item {
-  width: 150rpx;
-  height: 210rpx;
-  position: absolute;
-  bottom: 20rpx;
-  border-radius: 6px;
-  transform-origin: 0 100%;
-}
-.new-movie .card-item:nth-of-type(1) {
-  left: 20rpx;
-  background: lightblue;
-  z-index: 3;
-}
-.new-movie .card-item:nth-of-type(2) {
-  left: 80rpx;
-  background: lightcoral;
-  transform: scale(0.92);
-  z-index: 2;
-}
-.new-movie .card-item:nth-of-type(3) {
-  left: 140rpx;
-  background: lightseagreen;
-  transform: scale(0.84);
-  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 9;
 }
 
 .block-container {
@@ -125,6 +92,9 @@
 .movie-section .movie-item-score {
   color: #999;
   font-size: 12px;
+}
+.movie-item-score .score-value {
+  margin-left: 4px;
 }
 .movie-section .movie-item-like {
   position: absolute;

@@ -1,7 +1,7 @@
 {
   "usingComponents": {
-    "counter": "/components/counter/counter",
-    "star": "/components/star/star",
-    "loading": "/components/loading/loading"
+    "search": "/components/search/search",
+    "loading": "/components/loading/loading",
+    "star": "/components/star/star"
   }
 }

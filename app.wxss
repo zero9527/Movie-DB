@@ -23,6 +23,10 @@
   padding: 20rpx 30rpx;
   box-sizing: border-box;
 }
+.desc {
+  color: #999;
+  font-size: 12px;
+}
 .m-btn {
   display: inline-block;
   padding: 4px 10px;

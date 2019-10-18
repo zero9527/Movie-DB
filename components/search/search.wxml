@@ -1,0 +1,14 @@
+<view class="search">
+  <text class="title">MovieDoB</text>
+  <view class="input-wrapper" style="{{showInputFull ? 'width: 60%;' : ''}}" >
+    <i class="iconfont icon-search-outline" />
+    <input type="text" 
+      placeholder="搜索" 
+      value="{{value}}"
+      bindfocus="focus" 
+      bindblur="blur"
+      bindconfirm="toSearchList"
+    />
+  </view>
+  <text class="desc-text" hidden="{{!showInputFull}}">取消</text>
+</view>

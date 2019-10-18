@@ -1,4 +1,4 @@
-const ApiConfig = require('./api-config');
+const ApiConfig = require('./config');
 
 /**
  * ### 基于wx.request的api封装
@@ -22,7 +22,8 @@ module.exports = function HttpUtil(url = '', {
       url: ApiConfig.baseUrl + url,
       data: data,
       success(res) {
-        resolve(res.data);
+        if (res.statusCode == 200) resolve(res.data);
+        else reject(res.statusCode);
       },
       fail(err){
         reject(err);

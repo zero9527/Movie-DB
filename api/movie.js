@@ -22,4 +22,8 @@ export function getMovieDetail({ id }) {
   return HttpUtil('/v2/movie/subject/'+id);
 }
 
-export const heihei = '';
+export function searchMovie(params=null) {
+  return HttpUtil('/v2/search', {
+    data: params
+  });
+}

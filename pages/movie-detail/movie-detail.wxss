@@ -21,9 +21,14 @@
   align-items: center;
 }
 .movie-top .movie-img {
-  width: 384rpx;
-  height: 288rpx;
+  width: 288rpx;
+  height: 384rpx;
+  position: relative;
   margin-right: 10px;
+}
+.movie-top .movie-img image {
+  height: 100%;
+  width: 100%;
 }
 .movie-top .movie-title {
   font-size: 22px;
@@ -136,3 +141,34 @@
   background: #eee;
 }
 
+.movie-pic-item {
+  display: inline-block;
+}
+.movie-pic-item image {
+  width: 320rpx;
+  height: 240rpx;
+  margin-right: 6px;
+  border-radius: 4px;
+  background: #eee;
+}
+
+.comment-item {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+.comment-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.comment-title text {
+  margin-right: 6px;
+}
+.comment-title image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 6px;
+  border-radius: 40rpx;
+  background: #eee;
+}

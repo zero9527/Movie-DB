@@ -1,11 +1,13 @@
-<view class="movie-detail">
+<scroll-view scroll-y="{{true}}" class="movie-detail">
   <view class="movie-header">
     <view class="main-content">
       <view class="loading-wrapper" wx:if="{{isLoading}}">
         <loading />
       </view>
       <view class="movie-top">
-        <image src="{{movieInfo.images.small}}" mode="aspectFit" class="movie-img" />
+        <view class="movie-img">
+          <image src="{{movieInfo.images.small}}" mode="aspectFit" />
+        </view>
         <view hidden="{{isLoading}}">
           <view class="movie-title">{{ movieInfo.title }}</view>
           <view>{{ movieInfo.original_title }} ({{ movieInfo.year }})</view>
@@ -74,15 +76,10 @@
 
   <view class="movie-pic main-content">
     <view class="block-title">预告片 / 剧照</view>
-    <scroll-view scroll-x="{{true}}">
-
-    </scroll-view>
-  </view>
-
-  <view class="movie-like main-content">
-    <view class="block-title">喜欢这部电影的人也喜欢</view>
-    <scroll-view scroll-x="{{true}}">
-
+    <scroll-view class="scroll-x" scroll-x="{{true}}">
+      <view class="movie-pic-item" wx:for="{{movieInfo.photos}}" wx:key="{{item.avatars.medium}}">
+        <image src="{{item.image}}" mode="aspectFill" />
+      </view>
     </scroll-view>
   </view>
 
@@ -94,5 +91,16 @@
         写影评
       </view>
     </view>
+    <view class="comment-item" wx:for="{{movieInfo.popular_reviews}}" wx:key="{{index}}">
+      <view class="comment-title desc">
+        <image src="{{item.author.avatar}}" mode="aspectFit" />
+        <text>{{ item.author.name }}</text>
+        <star score="{{item.rating.value*2}}" />
+      </view>
+      <view>{{ item.summary }}</view>
+      <view class="desc">
+        <!-- <text>{{  }}</text> -->
+      </view>
+    </view>
   </view>
-</view>
+</scroll-view>
