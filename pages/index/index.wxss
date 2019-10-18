@@ -1,0 +1,231 @@
+.new-movie {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px 0;
+  padding: 30px 20px;
+  border-radius: 4px;
+  color: #fff;
+  background: rgb(76, 74, 75);
+  box-sizing: border-box;
+}
+.new-movie .tag {
+  position: absolute;
+  bottom: 10rpx;
+  right: 20rpx;
+  font-size: 14px;
+}
+.new-movie .card-wrapper {
+  flex: 1;
+}
+.new-movie .card-item {
+  width: 150rpx;
+  height: 210rpx;
+  position: absolute;
+  bottom: 20rpx;
+  border-radius: 6px;
+  transform-origin: 0 100%;
+}
+.new-movie .card-item:nth-of-type(1) {
+  left: 20rpx;
+  background: lightblue;
+  z-index: 3;
+}
+.new-movie .card-item:nth-of-type(2) {
+  left: 80rpx;
+  background: lightcoral;
+  transform: scale(0.92);
+  z-index: 2;
+}
+.new-movie .card-item:nth-of-type(3) {
+  left: 140rpx;
+  background: lightseagreen;
+  transform: scale(0.84);
+  z-index: 1;
+}
+
+.block-container {
+  width: 100%;
+  margin-top: 40px;
+}
+.title-section {
+  width: 100%;
+  position: relative;
+  padding-bottom: 15px;
+  font-size: 20px;
+  font-weight: 500;
+}
+.title-section .title-active {
+  color: #333;
+}
+.title-section .title-more {
+  position: absolute;
+  right: 0;
+  top: 20%;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.movie-line {
+  margin-top: 10px;
+}
+.movie-line .title-section {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #f1f1f1;
+}
+.movie-line .line-item {
+  padding-bottom: 15px;
+  margin-right: 10px;
+  color: #999;
+}
+.movie-line .title-active {
+  color: #333;
+  border-bottom: 2px solid #333;
+}
+
+.movie-section .movie-item {
+  width: calc((100% - 20px) / 3);
+  height: 400rpx;
+  position: relative;
+  display: inline-block;
+  vertical-align: text-top;
+  margin-bottom: 26px;
+  margin-right: 10px;
+  box-sizing: border-box;
+}
+.movie-section .movie-item:active .movie-item-pic {
+  box-shadow: 0 1px 10px rgba(50, 50, 50, 0.4);
+}
+.movie-section .movie-item:nth-of-type(3n) {
+  margin-right: 0;
+}
+.movie-section .movie-item-pic {
+  width: 100%;
+  height: 80%;
+  position: relative;
+  border-radius: 4px;
+  background: #eee;
+  overflow: hidden;
+}
+.movie-section .movie-item-pic image {
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.movie-section .movie-item-name {
+  padding: 3px 0;
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.movie-section .movie-item-score {
+  color: #999;
+  font-size: 12px;
+}
+.movie-section .movie-item-like {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 4px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  background: rgba(50, 50, 50, 0.5);
+}
+
+.rank-item {
+  position: relative;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  border-radius: 4px;
+  background: #555;
+  overflow: hidden;
+}
+.rank-item .rank-itme-title {
+  height: 100%;
+  padding: 20px 10px;
+  font-size: 14px;
+  text-align: center;
+  color: #999;
+  background: #333;
+}
+.rank-item .rank-item-type {
+  color: #fff;
+  font-size: 18px;
+}
+.rank-item .rank-item-content {
+  padding: 0 20px;
+  font-size: 14px;
+}
+.rank-item .rank-item-link {
+  position: absolute;
+  right: 10px;
+  padding: 2px 8px;
+  font-size: 12px;
+  border-radius: 20px;
+  color: #ccc;
+  border: 1px solid #ccc;
+}
+.rank-item-top250 {
+  background: rgba(75, 64, 85, .8);
+}
+.rank-item-top250 .rank-itme-title {
+  background: rgb(75, 64, 85);
+}
+
+
+.db-list-item {
+  display: flex;
+  justify-content: flex-start;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #eee;
+}
+.list-item-pic-wrapper {
+  width: 300rpx;
+  height: 160rpx;
+  position: relative;
+}
+.list-item-pic {
+  width: 140rpx;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  border-radius: 4px;
+  background: lightcoral;
+  transform-origin: 0 100%;
+  z-index: 3;
+}
+.list-item-pic:nth-of-type(2) {
+  left: 15px;
+  background: lightcyan;
+  transform: scale(0.92);
+  z-index: 2;
+}
+.list-item-pic:nth-of-type(3) {
+  left: 30px;
+  background: lightslategray;
+  transform: scale(0.84);
+  z-index: 1;
+}
+.list-item-content {
+  flex: 100%;
+}
+.list-item-title {
+  font-weight: 500;
+  font-size: 16px;
+}
+.list-item-count {
+  color: #999;
+  font-size: 12px;
+}
+.list-item-creator {
+  margin-top: 10rpx;
+  color: #999;
+  font-size: 12px;
+}

@@ -1,0 +1,98 @@
+<view class="movie-detail">
+  <view class="movie-header">
+    <view class="main-content">
+      <view class="loading-wrapper" wx:if="{{isLoading}}">
+        <loading />
+      </view>
+      <view class="movie-top">
+        <image src="{{movieInfo.images.small}}" mode="aspectFit" class="movie-img" />
+        <view hidden="{{isLoading}}">
+          <view class="movie-title">{{ movieInfo.title }}</view>
+          <view>{{ movieInfo.original_title }} ({{ movieInfo.year }})</view>
+          <view class="desc" style="margin:6px 0 12px;">
+            {{ movieInfo.countries }} / 
+            {{ movieInfo.genres }} / 
+            {{ movieInfo.pubdates }} / 
+            片长{{ movieInfo.durations[0] }}
+          </view>
+          <view class="btn-wrapper">
+            <button class="m-btn">
+              <i class="iconfont icon-heart-outline" />
+              <text> 想看</text>
+            </button>
+            <button class="m-btn">
+              <i class="iconfont icon-star-outline" />
+              <text> 看过</text>
+            </button>
+          </view>
+        </view>
+      </view>
+      <view class="movie-score">
+        <view>豆瓣评分 TM</view>
+        <view class="score-wrapper">
+          <text class="score">{{ movieInfo.rating.average }}</text>
+          <view>
+            <star score="{{movieInfo.rating.average}}" />
+            <view class="desc">{{ movieInfo.ratings_count }}人评价</view>
+          </view>
+          <view class="add-score">
+            <i class="iconfont icon-edit-outline" />
+            我要评分
+          </view>
+        </view>
+      </view>
+      <view class="movie-play">
+        <view class="title-wrapper">
+          <i class="iconfont icon-play-circle-outline" />
+          <text class="title">即将可播</text>
+        </view>
+        <view class="more desc">在豆瓣App打开上架提醒 ></view>
+      </view>
+    </view>
+  </view>
+  <view class="movie-info main-content">
+    <view class="block-title">剧情简介</view>
+    <text>{{ showDescFull ? movieInfo.summary : desc60words }}</text>
+    <text class="more" bind:tap="showDescFullWords" hidden="{{showDescFull}}">展开</text>
+  </view>
+
+  <view class="movie-actor main-content">
+    <view class="block-title">演职员</view>
+    <scroll-view class="scroll-x" scroll-x="{{true}}">
+      <view class="actor-item" wx:for="{{movieInfo.directors}}" wx:key="{{item.avatars.medium}}">
+        <image src="{{item.avatars.medium}}" />
+        <view>{{ item.name }}</view>
+        <text class="desc">导演</text>
+      </view>
+      <view class="actor-item" wx:for="{{movieInfo.casts}}" wx:key="{{item.avatars.medium}}">
+        <image src="{{item.avatars.medium}}" />
+        <view>{{ item.name }}</view>
+        <text class="desc">演员</text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="movie-pic main-content">
+    <view class="block-title">预告片 / 剧照</view>
+    <scroll-view scroll-x="{{true}}">
+
+    </scroll-view>
+  </view>
+
+  <view class="movie-like main-content">
+    <view class="block-title">喜欢这部电影的人也喜欢</view>
+    <scroll-view scroll-x="{{true}}">
+
+    </scroll-view>
+  </view>
+
+  <view class="movie-comment main-content">
+    <view class="block-title">
+      影评
+      <view class="desc">
+        <i class="iconfont icon-edit-outline" />
+        写影评
+      </view>
+    </view>
+  </view>
+</view>

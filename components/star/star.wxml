@@ -1,0 +1,34 @@
+<view class="m-star">
+  <!-- 显示评分 -->
+  <block wx:if="{{readonly}}">
+    <view class="star-wrappwer">
+      <view class="star-score" style="width:{{(score/10)*100+'%'}}">
+        <i class="iconfont icon-changyongtubiao-mianxing-11" />
+        <i class="iconfont icon-changyongtubiao-mianxing-11" />
+        <i class="iconfont icon-changyongtubiao-mianxing-11" />
+        <i class="iconfont icon-changyongtubiao-mianxing-11" />
+        <i class="iconfont icon-changyongtubiao-mianxing-11" />
+      </view>
+      <view class="star-bg">
+        <i class="iconfont icon-changyongtubiao-mianxing-11" />
+        <i class="iconfont icon-changyongtubiao-mianxing-11" />
+        <i class="iconfont icon-changyongtubiao-mianxing-11" />
+        <i class="iconfont icon-changyongtubiao-mianxing-11" />
+        <i class="iconfont icon-changyongtubiao-mianxing-11" />
+      </view>
+    </view>
+  </block>
+
+  <!-- 打分 -->
+  <block wx:else>
+    <view class="star-bg">
+      <i 
+        wx:for="{{5}}"
+        wx:key="{{index}}"
+        bind:tap="scoreChange"
+        data-score="{{index+1}}"
+        class="iconfont icon-changyongtubiao-mianxing-11 {{_score >= index+1 ? 'star-active' : ''}}" 
+      />
+    </view>
+  </block>
+</view>

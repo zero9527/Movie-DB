@@ -1,0 +1,138 @@
+:host {
+  font-size: 14px;
+  color: #333;
+}
+.loading-wrapper {
+  width: 100%;
+  position: absolute;
+  top: 20px;
+  left: 0;
+}
+.movie-header {
+  position: relative;
+  color: #fff;
+  background: rgb(127, 111, 91);
+}
+.movie-header .main-content {
+  padding: 40rpx 30rpx;
+}
+.movie-top {
+  display: flex;
+  align-items: center;
+}
+.movie-top .movie-img {
+  width: 384rpx;
+  height: 288rpx;
+  margin-right: 10px;
+}
+.movie-top .movie-title {
+  font-size: 22px;
+}
+.desc {
+  font-size: 12px;
+  color: #ccc;
+}
+.btn-wrapper {
+  display: flex; 
+  justify-content: space-between;
+}
+.btn-wrapper .m-btn {
+  width: 48%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+.btn-wrapper .iconfont {
+  margin-right: 4px;
+  color: orange;
+}
+.btn-wrapper text {
+  font-size: 13px;
+}
+
+.movie-score {
+  margin: 10px 0;
+  padding: 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  background: rgba(0,0,0,0.1);
+}
+.movie-score .score-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.movie-score .score {
+  margin-right: 10px;
+  font-size: 36px;
+}
+.movie-score .add-score {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+
+.movie-play {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  background: rgba(0,0,0,0.1);
+}
+.movie-play .title-wrapper {
+  display: flex;
+  align-items: center;
+}
+.movie-play .iconfont {
+  font-size: 22px;
+  color: #ccc;
+} 
+.movie-play .title {
+  margin-left: 4px;
+  font-size: 16px;
+}
+
+.movie-info {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+.movie-info .more {
+  float: right;
+  color: #42bd56;
+}
+
+.block-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #999;
+}
+.block-title .desc {
+  display: flex;
+  align-items: center;
+}
+.scroll-x {
+  width: 100%; 
+  white-space: nowrap;
+}
+
+.actor-item {
+  display: inline-block;
+  margin-right: 10px;
+  text-align: center;
+}
+.actor-item image {
+  width: 192rpx;
+  height: 256rpx;
+  border-radius: 4px;
+  background: #eee;
+}
+

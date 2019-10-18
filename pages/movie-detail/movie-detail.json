@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "loading": "/components/loading/loading",
+    "star": "/components/star/star"
+  },
+  "navigationBarTitleText": "电影详情"
+}

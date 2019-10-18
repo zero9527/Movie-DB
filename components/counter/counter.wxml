@@ -1,0 +1,5 @@
+<view class="m-counter list-item">
+  <button class="m-btn" bind:tap="decrease">-</button>
+  <text class="m-content">{{ count }}</text>
+  <button class="m-btn" bind:tap="increment">+</button>
+</view>

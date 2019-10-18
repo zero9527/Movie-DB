@@ -1,0 +1,95 @@
+<view class="container">
+  <scroll-view scroll-y="{{true}}" style="height: 100vh;"
+    bindscrolltolower="loadMore"
+    bindscrolltoupper="refresh"
+  >
+    <view class="main-content">
+      <view class="new-movie">
+        <view class="card-wrapper">
+          <view class="card-item">1</view>
+          <view class="card-item">2</view>
+          <view class="card-item">3</view>
+        </view>
+        <view>
+          <view>今日可播放电影已更新</view>
+          <view style="margin-top: 4px;font-size:14px;">打开App看电影30部></view>
+        </view>
+        <navigator class="tag" url="">
+          <i class="iconfont icon-film-outline" /> 看电影
+        </navigator>
+      </view>
+    </view>
+
+    <view class="movie-line block-container main-content">
+      <view class="title-section">
+        <text class="line-item {{movieLineStatus === 0 ? 'title-active' : ''}}" 
+          bind:tap="movieLineStatusChange" data-status="0">影院热映</text>
+        <text class="line-item {{movieLineStatus === 1 ? 'title-active' : ''}}" 
+          bind:tap="movieLineStatusChange" data-status="1">即将上映</text>
+        <!-- <view class="title-more">
+          用App看更多 32 >
+        </view> -->
+      </view>
+      <!-- 影院热映 -->
+      <view class="movie-section" hidden="{{movieLineStatus === 1}}">
+        <view class="movie-item" wx:for="{{movieLine}}" wx:key="{{index}}" bind:tap="toDetail" data-id="{{item.id}}">
+          <view class="movie-item-pic">
+            <image src="{{item.images.small}}" alt="加载中..." mode="aspectFit" />
+          </view>
+          <view class="movie-item-name">{{ item.title }}</view>
+          <view class="movie-item-score">
+            <star score="{{ item.rating.average }}" wx:if="{{item.rating.average !== 0}}" />
+            <text wx:if="{{item.rating.average !== 0}}">{{ item.rating.average }}</text>
+            <text wx:else>尚未上映</text>
+          </view>
+          <view class="movie-item-like">
+            <i class="iconfont icon-heart-outline" />
+          </view>
+        </view>
+      </view>
+      <!-- 即将上映 -->
+      <view class="movie-section" hidden="{{movieLineStatus === 0}}">
+        <view class="movie-item" wx:for="{{movieComing}}" wx:key="{{index}}" bind:tap="toDetail" data-id="{{item.id}}">
+          <view class="movie-item-pic">
+            <image src="{{item.images.small}}" alt="加载中..." mode="aspectFit" />
+          </view>
+          <view class="movie-item-name">{{ item.title }}</view>
+          <view class="movie-item-score">
+            <star score="{{ item.rating.average }}" wx:if="{{item.rating.average !== 0}}" />
+            <text wx:if="{{item.rating.average !== 0}}">{{ item.rating.average }}</text>
+            <text wx:else>尚未上映</text>
+          </view>
+          <view class="movie-item-like">
+            <i class="iconfont icon-heart-outline" />
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="hot-movie block-container main-content">
+      <view class="title-section">
+        <text class="title-active">TOP250</text>
+        <!-- <view class="title-more">
+          用App看更多 500 >
+        </view> -->
+      </view>
+      <view class="movie-section">
+        <view class="movie-item" wx:for="{{movieTop250}}" wx:key="{{index}}"  bind:tap="toDetail" data-id="{{item.id}}">
+          <view class="movie-item-pic">
+            <image src="{{item.images.small}}" alt="加载中..." mode="aspectFit" />
+          </view>
+          <view class="movie-item-name">{{ item.title }}</view>
+          <view class="movie-item-score">
+            <star score="{{ item.rating.average }}" wx:if="{{item.rating.average !== 0}}" />
+            <text wx:else>尚未上映</text>
+          </view>
+          <view class="movie-item-like">
+            <i class="iconfont icon-heart-outline" />
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <loading wx:if="{{!isLoading}}" />
+  </scroll-view>
+</view>

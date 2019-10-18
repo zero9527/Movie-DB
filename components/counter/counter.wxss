@@ -1,0 +1,12 @@
+.m-counter {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+}
+.m-content {
+  margin: 0 8px;
+}
+.m-btn {
+  padding: 4px 10px;
+  line-height: 1;
+}
