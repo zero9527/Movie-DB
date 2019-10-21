@@ -1,7 +1,8 @@
 {
   "usingComponents": {
+    "star": "/components/star/star",
     "search": "/components/search/search",
     "loading": "/components/loading/loading",
-    "star": "/components/star/star"
+    "icon-button": "/components/icon-button/icon-button"
   }
 }

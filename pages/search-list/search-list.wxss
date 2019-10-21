@@ -1,1 +1,27 @@
-
+.search-wrapper {
+  border-bottom: 1px solid #f6f6f6;
+}
+.no-data {
+  text-align: center;
+  color: #999;
+}
+.movie-item {
+  display: flex;
+  margin-bottom: 10px;
+}
+.movie-item:active {
+  background: #f6f6f6;
+}
+.movie-item-pic {
+  width: 120rpx;
+  height: 160rpx;
+  margin-right: 10px;
+}
+.movie-item-pic image {
+  width: 100%;
+  height: 100%;
+}
+.movie-item-content {
+  padding-top: 4px;
+  font-size: 14px;
+}

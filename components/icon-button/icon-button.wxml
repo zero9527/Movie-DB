@@ -1,0 +1,3 @@
+<view class="toTopBtn" style="{{style}}" bind:tap="tap">
+  <i class="iconfont {{icon}}" />
+</view>

@@ -3,11 +3,13 @@
   <view class="input-wrapper" style="{{showInputFull ? 'width: 60%;' : ''}}" >
     <i class="iconfont icon-search-outline" />
     <input type="text" 
+      disabled="{{disabled}}"
       placeholder="搜索" 
       value="{{value}}"
       bindfocus="focus" 
       bindblur="blur"
-      bindconfirm="toSearchList"
+      bindinput="input"
+      bindconfirm="confirm"
     />
   </view>
   <text class="desc-text" hidden="{{!showInputFull}}">取消</text>

@@ -1,7 +1,9 @@
 {
   "usingComponents": {
+    "star": "/components/star/star",
     "search": "/components/search/search",
-    "loading": "/components/loading/loading"
+    "loading": "/components/loading/loading",
+    "icon-button": "/components/icon-button/icon-button"
   },
   "navigationBarTitleText": "搜索电影"
 }

@@ -1,25 +1,29 @@
-<scroll-view scroll-y="{{true}}" style="height: 100vh;"
+<scroll-view 
+  style="height: 100vh;"
+  scroll-y="{{true}}" 
   bindscrolltolower="loadMore"
-  bindscrolltoupper="refresh"
+  scroll-with-animation="{{true}}"
+  scroll-top="{{scrollTop}}"
 >
-  <search bind:confirm="searchMovie" />
+  <view class="search-wrapper">
+    <search value="{{input}}" bind:confirm="searchMovie" bind:change="searchChange" />
+  </view>
   <view class="main-content desc">
     <view>豆瓣电影搜索Api已挂。。。</view>
     <view>不知道其他Api还能活多久。。。</view>
+    <view>目前的搜索结果来自Top250。。。</view>
   </view>
   <view class="search-movie block-container main-content">
-    <view class="title-section">
-      <text class="title-active">影视</text>
-    </view>
     <view class="movie-section">
+      <view class="movie-item desc">搜索到 {{ searchList.length }} 条数据</view>
       <view class="movie-item" wx:for="{{searchList}}" wx:key="{{index}}"  bind:tap="toDetail" data-id="{{item.id}}">
         <view class="movie-item-pic">
-          <image src="{{item.images.small}}" alt="加载中..." mode="aspectFit" />
+          <image src="{{item.images.small}}" alt="加载中..." mode="aspectFill" class="img" />
         </view>
-        <view>
+        <view class="movie-item-content">
           <view class="movie-item-name">{{ item.title }}</view>
-          <view class="movie-item-score">
-            <star score="{{ item.rating.average }}" wx:if="{{item.rating.average !== 0}}" />
+          <view class="movie-item-score desc">
+            <star wx:if="{{item.rating.average !== 0}}" score="{{ item.rating.average }}" />
             <text wx:if="{{item.rating.average !== 0}}">{{ item.rating.average }}</text>
             <text wx:else>尚未上映</text>
           </view>
@@ -28,5 +32,6 @@
     </view>
   </view>
 
+  <icon-button icon="icon-arrow-upward-outline" bind:tap="toTop"  />
   <loading wx:if="{{isLoading}}" />
 </scroll-view>

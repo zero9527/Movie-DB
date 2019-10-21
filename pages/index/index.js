@@ -8,25 +8,27 @@ Page({
     movieComing: [{},{},{},{},{},{}], // 即将上映
     movieTop250: [], // Top250
     currentPage: 0,
-    isLoading: false
+    isLoading: false,
+    scrollTop: 0
   },
   onLoad() {
     this.init();
+    app.getMovieTop250All();
   },
   init() {
     this.getDataList('movieLine', {
       city: '深圳',
       start: 0,
-      count: 6
+      count: 9
     });
     this.getDataList('movieTop250', {
       start: 0,
       count: 10
     });
   },
-  toSearchList(input) {
+  toSearchList(e) {
     wx.navigateTo({
-      url: '/pages/search-list/search-list?input='+input
+      url: '/pages/search-list/search-list?input='+e.detail
     })
   },
   movieLineStatusChange(e) {
@@ -49,7 +51,9 @@ Page({
       movieComing: 'getMovieComing',
       movieTop250: 'getMovieTop250'
     };
-    this.setData({ isLoading: true });
+    if (type === 'movieTop250') {
+      this.setData({ isLoading: true });
+    }
 
     Api[type2Api[type]](params)
     .then(res => {
@@ -62,10 +66,10 @@ Page({
       setTimeout(() => {
         this.setData({ isLoading: false });
       }, 300);
-    }).catch(statucCode => {
+    }).catch(err => {
       wx.showModal({
         title: '提示',
-        content: `请求失败：${statucCode}`
+        content: `请求失败：${JSON.stringify(err)}`
       });
       this.setData({ isLoading: false });
     });
@@ -86,5 +90,8 @@ Page({
     wx.navigateTo({
       url: '/pages/movie-detail/movie-detail?id='+id
     })
+  },
+  toTop() {
+    this.setData({ scrollTop: 0 });
   }
 })

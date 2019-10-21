@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/movie-detail/movie-detail",
     "pages/search-list/search-list",
+    "pages/movie-detail/movie-detail",
     "pages/logs/logs"
   ],
   "window": {

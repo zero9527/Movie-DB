@@ -1,9 +1,13 @@
-<scroll-view scroll-y="{{true}}" class="home"
+<scroll-view 
+  class="home"
+  scroll-y="{{true}}"
+  scroll-top="{{scrollTop}}"
+  scroll-with-animation="{{true}}"
   bindscrolltolower="loadMore"
   bindscrolltoupper="refresh"
 >
   <view class="search-wrapper">
-    <search bind:confirm="toSearchList" />
+    <search bind:confirm="toSearchList" disabled="{{movieTop250All.length < 250}}" />
   </view>
 
   <view class="movie-line block-container main-content">
@@ -24,8 +28,8 @@
         </view>
         <view class="movie-item-name">{{ item.title }}</view>
         <view class="movie-item-score">
-          <star score="{{ item.rating.average }}" wx:if="{{item.rating.average !== 0}}" />
-          <text class="score-value" wx:if="{{item.rating.average !== 0}}">{{ item.rating.average }}</text>
+          <star wx:if="{{item.rating.average !== 0}}" score="{{ item.rating.average }}" />
+          <text wx:if="{{item.rating.average !== 0}}" class="score-value">{{ item.rating.average }}</text>
           <text wx:else>尚未上映</text>
         </view>
         <view class="movie-item-like">
@@ -41,8 +45,8 @@
         </view>
         <view class="movie-item-name">{{ item.title }}</view>
         <view class="movie-item-score">
-          <star score="{{ item.rating.average }}" wx:if="{{item.rating.average !== 0}}" />
-          <text class="score-value" wx:if="{{item.rating.average !== 0}}">{{ item.rating.average }}</text>
+          <star wx:if="{{item.rating.average !== 0}}" score="{{ item.rating.average }}" />
+          <text wx:if="{{item.rating.average !== 0}}" class="score-value">{{ item.rating.average }}</text>
           <text wx:else>尚未上映</text>
         </view>
         <view class="movie-item-like">
@@ -66,8 +70,8 @@
         </view>
         <view class="movie-item-name">{{ item.title }}</view>
         <view class="movie-item-score">
-          <star score="{{ item.rating.average }}" wx:if="{{item.rating.average !== 0}}" />
-          <text class="score-value" wx:if="{{item.rating.average !== 0}}">{{ item.rating.average }}</text>
+          <star wx:if="{{item.rating.average !== 0}}" score="{{ item.rating.average }}" />
+          <text wx:if="{{item.rating.average !== 0}}" class="score-value">{{ item.rating.average }}</text>
           <text wx:else>尚未上映</text>
         </view>
         <view class="movie-item-like">
@@ -77,5 +81,6 @@
     </view>
   </view>
 
+  <icon-button icon="icon-arrow-upward-outline" bind:tap="toTop"  />
   <loading wx:if="{{isLoading}}" />
 </scroll-view>

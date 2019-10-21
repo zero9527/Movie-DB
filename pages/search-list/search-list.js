@@ -9,38 +9,38 @@ Page({
     isLoading: false
   },
   onLoad({ input }) {
+    // input = '海'; // 模拟
     if (!input) return;
     this.setData({ input });
+    this.searchMovie();
+  },
+  searchChange(e) {
+    this.setData({ input: e.detail });
     this.searchMovie();
   },
   searchMovie() {
     if (this.data.isLoading) return;
     this.setData({ isLoading: true });
 
-    Api.searchMovie({
-      q: this.data.input,
-      start: this.data.currentPage*10,
-      count: 10
-    })
-    .then(res => {
+    let movieTop250All = wx.getStorageSync('movieTop250All');
+    if (movieTop250All) {
+      let searchRes = movieTop250All.filter(item => item.title.includes(this.data.input));
       this.setData({
         isLoading: false,
-        searchList: res
-      })
-    }).catch(statucCode => {
-      wx.showModal({
-        title: '提示',
-        content: `请求失败：${statucCode}`
+        searchList: searchRes
       });
-      this.setData({ isLoading: false });
-    });
-  },
-  refresh() {
-    this.setData({ currentPage: 0 });
-    this.init();
+
+    } else {
+      app.getMovieTop250All(res => {
+        this.setData({
+          isLoading: false,
+          searchList: res
+        });
+      });
+    }
   },
   loadMore() {
-    this.searchMovie();
+    // this.searchMovie();
   },
   toDetail(e) {
     const id = e.currentTarget.dataset.id;
@@ -48,5 +48,8 @@ Page({
     wx.navigateTo({
       url: '/pages/movie-detail/movie-detail?id='+id
     })
+  },
+  toTop() {
+    this.setData({ scrollTop: 0 });
   }
 })

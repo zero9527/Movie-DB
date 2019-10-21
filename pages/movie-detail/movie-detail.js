@@ -33,11 +33,11 @@ Page({
         movieInfo: res,
         desc60words: this.getDesc60Words(res.summary)
       });
-      wx.setStorageSync('movieInfo', JSON.stringify(res));
-    }).catch(statucCode => {
+      // wx.setStorageSync('movieInfo', JSON.stringify(res));
+    }).catch(err => {
       wx.showModal({
         title: '提示',
-        content: `请求失败：${statucCode}`
+        content: `请求失败：${JSON.stringify(err)}`
       });
       this.setData({ isLoading: false });
     });
