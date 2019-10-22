@@ -40,7 +40,7 @@ Page({
     if (this.data.movieComing[0].title) return;
     this.getDataList('movieComing', {
       start: 0,
-      count: 6
+      count: 9
     });
   },
   getDataList(type, params) {
@@ -74,6 +74,13 @@ Page({
       this.setData({ isLoading: false });
     });
   },
+  scroll(e) {
+    const scrollHeight = e.detail.scrollHeight;
+    const scrollTop = e.detail.scrollTop;
+    if (scrollHeight - scrollTop - app.globalData.systemInfo.height <= 300) {
+      this.loadMore();
+    }
+  },
   refresh() {
     this.setData({ currentPage: 0 });
     this.init();
@@ -93,5 +100,12 @@ Page({
   },
   toTop() {
     this.setData({ scrollTop: 0 });
+  },
+  onShareAppMessage() {
+    return {
+      title: `${app.globalData.appName}: 电影介绍、评分排行`,
+      imageUrl: '/assets/images/share-img.jpg',
+      path:`/pages/index/index`
+    };
   }
 })

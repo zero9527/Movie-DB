@@ -11,17 +11,10 @@ Component({
     }
   },
   data: {
-    showInputFull: false,
     inputTimer: null
   },
   ready() {},
   methods: {
-    focus() {
-      this.setData({ showInputFull: true });
-    },
-    blur() {
-      this.setData({ showInputFull: false });
-    },
     input(e) {
       const input = e.detail.value;
       if (this.data.inputTimer) clearTimeout(this.data.inputTimer);

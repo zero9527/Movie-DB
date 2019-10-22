@@ -3,8 +3,7 @@
   scroll-y="{{true}}"
   scroll-top="{{scrollTop}}"
   scroll-with-animation="{{true}}"
-  bindscrolltolower="loadMore"
-  bindscrolltoupper="refresh"
+  bindscroll="scroll"
 >
   <view class="search-wrapper">
     <search bind:confirm="toSearchList" disabled="{{movieTop250All.length < 250}}" />
@@ -20,7 +19,7 @@
     <!-- 影院热映 -->
     <view class="movie-section" hidden="{{movieLineStatus === 1}}">
       <view class="movie-item" wx:for="{{movieLine}}" wx:key="{{index}}" bind:tap="toDetail" data-id="{{item.id}}">
-        <view class="movie-item-pic">
+        <view class="movie-item-pic {{!movieLine[1].title ? 'loading-shink' : ''}}">
           <image src="{{item.images.small}}" alt="加载中..." mode="aspectFit" />
         </view>
         <view class="movie-item-name">{{ item.title }}</view>
@@ -35,7 +34,7 @@
     <!-- 即将上映 -->
     <view class="movie-section" hidden="{{movieLineStatus === 0}}">
       <view class="movie-item" wx:for="{{movieComing}}" wx:key="{{index}}" bind:tap="toDetail" data-id="{{item.id}}">
-        <view class="movie-item-pic">
+        <view class="movie-item-pic {{!movieComing[1].title ? 'loading-shink' : ''}}">
           <image src="{{item.images.small}}" alt="加载中..." mode="aspectFit" />
         </view>
         <view class="movie-item-name">{{ item.title }}</view>

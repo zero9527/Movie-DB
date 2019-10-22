@@ -1,7 +1,17 @@
 const Api = require('./api/movie.js');
 
 App({
-  onLaunch() {},
+  onLaunch() {
+    let that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.globalData.systemInfo = {
+          height: res.windowHeight,
+          width: res.windowWidth
+        };
+      }
+    });
+  },
   onShow() {},
   // 获取Top250全部电影，搜索列表用（搜索接口失效了。。。）
   getMovieTop250All(callback = null) {
@@ -40,6 +50,11 @@ App({
     });
   },
   globalData: {
+    appName: 'MovieDob',
+    systemInfo: {
+      height: 0,
+      width: 0,
+    },
     userInfo: null,
     movieTop250All: []
   }

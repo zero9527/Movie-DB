@@ -6,23 +6,13 @@
           <image src="{{movieInfo.images.small}}" mode="aspectFit" />
         </view>
         <view class="movie-content">
-          <view class="movie-title {{isLoading && 'loading-block'}}">{{ movieInfo.title||'loading' }}</view>
+          <view class="movie-title {{isLoading && 'loading-block'}}">{{ movieInfo.title||'...' }}</view>
           <view class="{{isLoading && 'loading-block'}}">{{ movieInfo.original_title }} ({{ movieInfo.year }})</view>
           <view class="desc {{isLoading && 'loading-block'}}" style="margin:6px 0 12px;">
             {{ movieInfo.countries }} / 
             {{ movieInfo.genres }} / 
             {{ movieInfo.pubdates }} / 
             片长{{ movieInfo.durations[0] }}
-          </view>
-          <view class="btn-wrapper">
-            <button class="m-btn">
-              <i class="iconfont icon-heart-outline" />
-              <text> 想看</text>
-            </button>
-            <button class="m-btn">
-              <i class="iconfont icon-star-outline" />
-              <text> 看过</text>
-            </button>
           </view>
         </view>
       </view>
@@ -45,7 +35,7 @@
   <view class="movie-info main-content">
     <view class="block-title">剧情简介</view>
     <text>{{ showDescFull ? movieInfo.summary : desc60words }}</text>
-    <text class="more" bind:tap="showDescFullWords" hidden="{{showDescFull}}">展开</text>
+    <text class="more" bind:tap="showDescFullWords" hidden="{{!movieInfo.summary || showDescFull}}">展开</text>
   </view>
 
   <view class="movie-actor main-content">
@@ -76,10 +66,6 @@
   <view class="movie-comment main-content">
     <view class="block-title">
       影评
-      <view class="desc">
-        <i class="iconfont icon-edit-outline" />
-        写影评
-      </view>
     </view>
     <view class="comment-item" wx:for="{{movieInfo.popular_reviews}}" wx:key="{{index}}">
       <view class="comment-title desc">

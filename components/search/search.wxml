@@ -1,16 +1,13 @@
 <view class="search">
   <text class="title">MovieDoB</text>
-  <view class="input-wrapper" style="{{showInputFull ? 'width: 60%;' : ''}}" >
+  <view class="input-wrapper" >
     <i class="iconfont icon-search-outline" />
     <input type="text" 
       disabled="{{disabled}}"
-      placeholder="搜索" 
+      placeholder="输入关键字，回车搜索" 
       value="{{value}}"
-      bindfocus="focus" 
-      bindblur="blur"
       bindinput="input"
       bindconfirm="confirm"
     />
   </view>
-  <text class="desc-text" hidden="{{!showInputFull}}">取消</text>
 </view>

@@ -41,3 +41,11 @@
   color: #f1f1f1 !important;
   background: #f1f1f1 !important;
 }
+.loading-shink {
+  animation: loading 1s ease infinite alternate;
+}
+
+@keyframes loading {
+  from { opacity: 1; }
+  to { opacity: 0.6; }
+}

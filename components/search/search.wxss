@@ -19,7 +19,7 @@
   font-weight: bold;
 }
 .input-wrapper {
-  width: 200rpx;
+  width: 60%;
   display: inline-flex;
   align-items: center;
   padding: 2px 6px;

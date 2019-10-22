@@ -47,5 +47,12 @@ Page({
   },
   showDescFullWords() {
     this.setData({ showDescFull: true });
+  },
+  onShareAppMessage() {
+    return {
+      title: `${this.data.movieInfo.title}|介绍、评分`,
+      imageUrl: '/assets/images/share-img.jpg',
+      path:`pages/movie-detail/movie-detail?id=${this.data.id}`
+    };
   }
 })
