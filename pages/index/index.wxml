@@ -16,9 +16,6 @@
         bind:tap="movieLineStatusChange" data-status="0">影院热映</text>
       <text class="line-item {{movieLineStatus === 1 ? 'title-active' : ''}}" 
         bind:tap="movieLineStatusChange" data-status="1">即将上映</text>
-      <!-- <view class="title-more">
-        用App看更多 32 >
-      </view> -->
     </view>
     <!-- 影院热映 -->
     <view class="movie-section" hidden="{{movieLineStatus === 1}}">
@@ -32,9 +29,7 @@
           <text wx:if="{{item.rating.average !== 0}}" class="score-value">{{ item.rating.average }}</text>
           <text wx:else>尚未上映</text>
         </view>
-        <view class="movie-item-like">
-          <i class="iconfont icon-heart-outline" />
-        </view>
+        <!-- <view class="movie-item-index">{{ index+1 }}</view> -->
       </view>
     </view>
     <!-- 即将上映 -->
@@ -49,9 +44,7 @@
           <text wx:if="{{item.rating.average !== 0}}" class="score-value">{{ item.rating.average }}</text>
           <text wx:else>尚未上映</text>
         </view>
-        <view class="movie-item-like">
-          <i class="iconfont icon-heart-outline" />
-        </view>
+        <!-- <view class="movie-item-index">{{ index+1 }}</view> -->
       </view>
     </view>
   </view>
@@ -74,9 +67,7 @@
           <text wx:if="{{item.rating.average !== 0}}" class="score-value">{{ item.rating.average }}</text>
           <text wx:else>尚未上映</text>
         </view>
-        <view class="movie-item-like">
-          <i class="iconfont icon-heart-outline" />
-        </view>
+        <view class="movie-item-index">{{ index+1 }}</view>
       </view>
     </view>
   </view>

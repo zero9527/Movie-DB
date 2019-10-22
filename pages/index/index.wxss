@@ -96,7 +96,7 @@
 .movie-item-score .score-value {
   margin-left: 4px;
 }
-.movie-section .movie-item-like {
+.movie-section .movie-item-index {
   position: absolute;
   top: 0;
   left: 0;

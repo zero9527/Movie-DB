@@ -1,17 +1,14 @@
 <scroll-view scroll-y="{{true}}" class="movie-detail">
   <view class="movie-header">
     <view class="main-content">
-      <view class="loading-wrapper" wx:if="{{isLoading}}">
-        <loading />
-      </view>
       <view class="movie-top">
-        <view class="movie-img">
+        <view class="movie-img {{isLoading && 'loading-block'}}">
           <image src="{{movieInfo.images.small}}" mode="aspectFit" />
         </view>
-        <view hidden="{{isLoading}}">
-          <view class="movie-title">{{ movieInfo.title }}</view>
-          <view>{{ movieInfo.original_title }} ({{ movieInfo.year }})</view>
-          <view class="desc" style="margin:6px 0 12px;">
+        <view class="movie-content">
+          <view class="movie-title {{isLoading && 'loading-block'}}">{{ movieInfo.title||'loading' }}</view>
+          <view class="{{isLoading && 'loading-block'}}">{{ movieInfo.original_title }} ({{ movieInfo.year }})</view>
+          <view class="desc {{isLoading && 'loading-block'}}" style="margin:6px 0 12px;">
             {{ movieInfo.countries }} / 
             {{ movieInfo.genres }} / 
             {{ movieInfo.pubdates }} / 
@@ -32,23 +29,16 @@
       <view class="movie-score">
         <view>豆瓣评分 TM</view>
         <view class="score-wrapper">
-          <text class="score">{{ movieInfo.rating.average }}</text>
+          <text class="score">{{ movieInfo.rating.average||'0.0' }}</text>
           <view>
             <star score="{{movieInfo.rating.average}}" />
             <view class="desc">{{ movieInfo.ratings_count }}人评价</view>
           </view>
-          <view class="add-score">
+          <!-- <view class="add-score">
             <i class="iconfont icon-edit-outline" />
             我要评分
-          </view>
+          </view> -->
         </view>
-      </view>
-      <view class="movie-play">
-        <view class="title-wrapper">
-          <i class="iconfont icon-play-circle-outline" />
-          <text class="title">即将可播</text>
-        </view>
-        <view class="more desc">在豆瓣App打开上架提醒 ></view>
       </view>
     </view>
   </view>

@@ -18,16 +18,23 @@
 }
 .movie-top {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 .movie-top .movie-img {
-  width: 288rpx;
-  height: 384rpx;
+  flex: 240rpx 0 0;
+  height: 350rpx;
   position: relative;
   margin-right: 10px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
 .movie-top .movie-img image {
-  height: 100%;
+  width: 100%;
+}
+
+.movie-top .movie-content {
   width: 100%;
 }
 .movie-top .movie-title {
@@ -78,28 +85,6 @@
   right: 0;
   display: flex;
   align-items: center;
-}
-
-.movie-play {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px;
-  border-radius: 6px;
-  font-size: 12px;
-  background: rgba(0,0,0,0.1);
-}
-.movie-play .title-wrapper {
-  display: flex;
-  align-items: center;
-}
-.movie-play .iconfont {
-  font-size: 22px;
-  color: #ccc;
-} 
-.movie-play .title {
-  margin-left: 4px;
-  font-size: 16px;
 }
 
 .movie-info {
