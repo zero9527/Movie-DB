@@ -2,8 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/search-list/search-list",
-    "pages/movie-detail/movie-detail",
-    "pages/logs/logs"
+    "pages/movie-detail/movie-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
