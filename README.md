@@ -2,15 +2,8 @@
 数据来源-豆瓣电影
 
 ### 部分截图
-#### 首页：
-![](./_readme/w1.jpg)
-
-
-#### 详情：
-![](./_readme/w2.jpg)
-
-
-#### 搜索列表：
-由于搜索接口不能用，所以数据是从TOP250中匹配的。。。
-![](./_readme/w3.jpg)
-
+<div>
+ <img src="./_readme/w1.jpg" style="width: 32%;" />
+ <img src="./_readme/w2.jpg" style="width: 33%" />
+ <img src="./_readme/w3.jpg" style="width: 33%" />
+</div>
