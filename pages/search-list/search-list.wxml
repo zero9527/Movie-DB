@@ -1,10 +1,4 @@
-<scroll-view 
-  style="height: 100vh;"
-  scroll-y="{{true}}" 
-  bindscrolltolower="loadMore"
-  scroll-with-animation="{{true}}"
-  scroll-top="{{scrollTop}}"
->
+<view>
   <view class="search-wrapper">
     <search value="{{input}}" bind:confirm="searchMovie" bind:change="searchChange" />
   </view>
@@ -34,4 +28,4 @@
 
   <icon-button icon="icon-arrow-upward-outline" bind:tap="toTop"  />
   <loading wx:if="{{isLoading}}" />
-</scroll-view>
+</view>

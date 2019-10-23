@@ -1,4 +1,4 @@
-<scroll-view scroll-y="{{true}}" class="movie-detail">
+<view class="movie-detail">
   <view class="movie-header">
     <view class="main-content">
       <view class="movie-top">
@@ -79,4 +79,4 @@
       </view>
     </view>
   </view>
-</scroll-view>
+</view>

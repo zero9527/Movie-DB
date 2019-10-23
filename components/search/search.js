@@ -11,9 +11,21 @@ Component({
     }
   },
   data: {
-    inputTimer: null
+    inputValue: '',
+    inputTimer: null,
+    showClearIcon: false
   },
   ready() {},
+  observers: {
+    'value': function(value) {
+      this.setData({
+        inputValue: value
+      })
+    },
+    'inputValue': function(inputValue) {
+      this.setData({ showClearIcon: inputValue !== '' });
+    }
+  },
   methods: {
     input(e) {
       const input = e.detail.value;
@@ -22,12 +34,18 @@ Component({
         this.triggerEvent('change', input)
       }, 500);
       this.setData({
+        inputValue: input,
         inputTimer: timer
       });
     },
     confirm(e) {
       const input = e.detail.value;
       this.triggerEvent('confirm', input);
+    },
+    clear() {
+      this.setData({
+        inputValue: ''
+      })
     }
   }
 });

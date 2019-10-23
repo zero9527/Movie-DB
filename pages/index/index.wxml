@@ -1,10 +1,4 @@
-<scroll-view 
-  class="home"
-  scroll-y="{{true}}"
-  scroll-top="{{scrollTop}}"
-  scroll-with-animation="{{true}}"
-  bindscroll="scroll"
->
+<view class="home">
   <view class="search-wrapper">
     <search bind:confirm="toSearchList" disabled="{{movieTop250All.length < 250}}" />
   </view>
@@ -48,12 +42,9 @@
     </view>
   </view>
 
-  <view class="hot-movie block-container main-content">
+  <view class="movie-top250 block-container main-content">
     <view class="title-section">
       <text class="title-active">TOP250</text>
-      <!-- <view class="title-more">
-        用App看更多 500 >
-      </view> -->
     </view>
     <view class="movie-section">
       <view class="movie-item" wx:for="{{movieTop250}}" wx:key="{{index}}"  bind:tap="toDetail" data-id="{{item.id}}">
@@ -69,8 +60,9 @@
         <view class="movie-item-index">{{ index+1 }}</view>
       </view>
     </view>
+
+    <loading wx:if="{{currentPage <= 1 || isLoading}}" />
   </view>
 
   <icon-button icon="icon-arrow-upward-outline" bind:tap="toTop"  />
-  <loading wx:if="{{isLoading}}" />
-</scroll-view>
+</view>

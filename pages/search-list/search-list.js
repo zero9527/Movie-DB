@@ -39,9 +39,6 @@ Page({
       });
     }
   },
-  loadMore() {
-    // this.searchMovie();
-  },
   toDetail(e) {
     const id = e.currentTarget.dataset.id;
     if (!id) return;
@@ -50,6 +47,9 @@ Page({
     })
   },
   toTop() {
-    this.setData({ scrollTop: 0 });
+    wx.pageScrollTo({
+      scrollTop: 0,
+      duration: 300
+    });
   }
 })

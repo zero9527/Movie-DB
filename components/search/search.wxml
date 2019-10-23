@@ -5,9 +5,10 @@
     <input type="text" 
       disabled="{{disabled}}"
       placeholder="输入关键字，回车搜索" 
-      value="{{value}}"
+      value="{{inputValue}}"
       bindinput="input"
       bindconfirm="confirm"
     />
+    <i wx:if="{{showClearIcon}}" class="iconfont icon-changyongtubiao-mianxing-8 clear" bind:tap="clear" />
   </view>
 </view>

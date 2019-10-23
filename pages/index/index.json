@@ -4,5 +4,7 @@
     "search": "/components/search/search",
     "loading": "/components/loading/loading",
     "icon-button": "/components/icon-button/icon-button"
-  }
+  },
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 300
 }

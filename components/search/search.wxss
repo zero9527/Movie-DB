@@ -20,6 +20,7 @@
 }
 .input-wrapper {
   width: 60%;
+  position: relative;
   display: inline-flex;
   align-items: center;
   padding: 2px 6px;
@@ -35,7 +36,20 @@
   font-size: 22px;
   color: #aaa;
 }
+.input-wrapper input {
+  width: 90%;
+}
 .desc-text {
   margin-left: 6px;
   color: #999;
+}
+
+.clear {
+  position: absolute;
+  right: 0;
+  background: #f6f6f6;
+  z-index: 9;
+}
+.clear:active {
+  color: #666;
 }

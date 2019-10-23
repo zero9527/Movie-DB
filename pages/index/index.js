@@ -8,8 +8,8 @@ Page({
     movieComing: [{},{},{},{},{},{}], // 即将上映
     movieTop250: [], // Top250
     currentPage: 0,
-    isLoading: false,
-    scrollTop: 0
+    isRefreshing: false,
+    isLoading: false
   },
   onLoad() {
     this.init();
@@ -63,9 +63,13 @@ Page({
       } : {
         [type]: res.subjects
       });
+
       setTimeout(() => {
-        this.setData({ isLoading: false });
+        this.setData({ isLoading: false, isRefreshing: false });
+        wx.stopPullDownRefresh();
+        wx.hideLoading();
       }, 300);
+
     }).catch(err => {
       wx.showModal({
         title: '提示',
@@ -74,18 +78,12 @@ Page({
       this.setData({ isLoading: false });
     });
   },
-  scroll(e) {
-    const scrollHeight = e.detail.scrollHeight;
-    const scrollTop = e.detail.scrollTop;
-    if (scrollHeight - scrollTop - app.globalData.systemInfo.height <= 300) {
-      this.loadMore();
-    }
-  },
-  refresh() {
-    this.setData({ currentPage: 0 });
+  onPullDownRefresh() {
+    this.setData({ currentPage: 0, isRefreshing: true });
+    wx.showLoading({ title: '正在加载...' });
     this.init();
   },
-  loadMore() {
+  onReachBottom() {
     this.getDataList('movieTop250', {
       start: this.data.currentPage*10,
       count: 10
@@ -99,7 +97,10 @@ Page({
     })
   },
   toTop() {
-    this.setData({ scrollTop: 0 });
+    wx.pageScrollTo({
+      scrollTop: 0,
+      duration: 300
+    });
   },
   onShareAppMessage() {
     return {
