@@ -51,7 +51,7 @@ Page({
   onShareAppMessage() {
     return {
       title: `${this.data.movieInfo.title}|介绍、评分`,
-      imageUrl: '/assets/images/share-img.jpg',
+      imageUrl: this.data.movieInfo.images.medium,
       path:`pages/movie-detail/movie-detail?id=${this.data.id}`
     };
   }

@@ -88,12 +88,13 @@ App({
     });
   },
   globalData: {
+    userInfo: null,
     appName: 'MovieDob',
     systemInfo: {
       height: 0,
       width: 0,
     },
-    userInfo: null,
+    city: '深圳',
     movieTop250All: []
   }
 })

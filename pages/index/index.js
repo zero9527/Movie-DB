@@ -16,8 +16,9 @@ Page({
     app.getMovieTop250All();
   },
   init() {
-    this.getDataList('movieLine', {
-      city: '深圳',
+    const movieLineType = ['movieLine', 'movieComing'];
+    this.getDataList(movieLineType[this.data.movieLineStatus], {
+      city: app.globalData.city,
       start: 0,
       count: 9
     });
@@ -64,22 +65,25 @@ Page({
         [type]: res.subjects
       });
 
-      setTimeout(() => {
-        this.setData({ isLoading: false, isRefreshing: false });
-        wx.stopPullDownRefresh();
-        wx.hideLoading();
-      }, 300);
+      wx.hideLoading();
+      wx.stopPullDownRefresh();
+      this.setData({ isLoading: false, isRefreshing: false });
 
     }).catch(err => {
       wx.showModal({
         title: '提示',
         content: `请求失败：${JSON.stringify(err)}`
       });
-      this.setData({ isLoading: false });
+      wx.hideLoading();
+      this.setData({ isLoading: false, isRefreshing: false });
     });
   },
   onPullDownRefresh() {
-    this.setData({ currentPage: 0, isRefreshing: true });
+    this.setData({ 
+      currentPage: 0, 
+      isRefreshing: true, 
+      movieTop250: [] 
+    });
     wx.showLoading({ title: '正在加载...' });
     this.init();
   },
