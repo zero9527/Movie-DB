@@ -2,13 +2,13 @@
   <view class="movie-header">
     <view class="main-content">
       <view class="movie-top">
-        <view class="movie-img {{isLoading && 'loading-block'}}">
+        <view class="movie-img {{isLoading && 'loading-block loading-shink'}}">
           <image src="{{movieInfo.images.small}}" mode="aspectFit" />
         </view>
         <view class="movie-content">
-          <view class="movie-title {{isLoading && 'loading-block'}}">{{ movieInfo.title||'...' }}</view>
-          <view class="{{isLoading && 'loading-block'}}">{{ movieInfo.original_title }} ({{ movieInfo.year }})</view>
-          <view class="desc {{isLoading && 'loading-block'}}" style="margin:6px 0 12px;">
+          <view class="movie-title {{isLoading && 'loading-block loading-shink'}}">{{ movieInfo.title||'...' }}</view>
+          <view class="{{isLoading && 'loading-block loading-shink'}}">{{ movieInfo.original_title }} ({{ movieInfo.year }})</view>
+          <view class="desc {{isLoading && 'loading-block loading-shink'}}" style="margin:6px 0 12px;">
             {{ movieInfo.countries }} / 
             {{ movieInfo.genres }} / 
             {{ movieInfo.pubdates }} / 
