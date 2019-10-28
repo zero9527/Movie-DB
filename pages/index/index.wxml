@@ -62,6 +62,7 @@
     </view>
 
     <loading wx:if="{{currentPage <= 1 || isLoading}}" />
+    <view wx:if="{{isTop250FullLoaded}}" class="nomore">没有更多数据了～</view>
   </view>
 
   <icon-button icon="icon-arrow-upward-outline" bind:tap="toTop"  />

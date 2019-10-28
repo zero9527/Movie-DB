@@ -9,7 +9,8 @@ Page({
     movieTop250: [], // Top250
     currentPage: 0,
     isRefreshing: false,
-    isLoading: false
+    isLoading: false,
+    isTop250FullLoaded: false
   },
   onLoad() {
     this.init();
@@ -45,7 +46,8 @@ Page({
     });
   },
   getDataList(type, params) {
-    if (this.data.isLoading) return;
+    const { isLoading, isTop250FullLoaded } = this.data;
+    if (isLoading || isTop250FullLoaded) return;
 
     const type2Api = {
       movieLine: 'getMovieLine',
@@ -59,6 +61,7 @@ Page({
     Api[type2Api[type]](params)
     .then(res => {
       this.setData(type === 'movieTop250' ? {
+        isTop250FullLoaded: res.subjects.length === 0,
         currentPage: this.data.currentPage+1,
         movieTop250: [...this.data.movieTop250, ...res.subjects]
       } : {
