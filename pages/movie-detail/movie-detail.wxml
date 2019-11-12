@@ -34,7 +34,7 @@
   </view>
   <view class="movie-info main-content">
     <view class="block-title">剧情简介</view>
-    <text>{{ showDescFull ? movieInfo.summary : desc60words }}</text>
+    <text class="info-content" style="{{showDescFull ? 'height: auto;' : ''}}">{{ movieInfo.summary  }}</text>
     <text class="more" bind:tap="showDescFullWords" hidden="{{!movieInfo.summary || showDescFull}}">展开</text>
   </view>
 
@@ -73,7 +73,7 @@
         <text>{{ item.author.name }}</text>
         <star score="{{item.rating.value*2}}" />
       </view>
-      <view>{{ item.summary }}</view>
+      <view class="comment-content">{{ item.summary }}</view>
       <view class="desc">
         <!-- <text>{{  }}</text> -->
       </view>
